@@ -12,7 +12,7 @@
   - First cd into the repo and run:
     `npm install`
   
-  - Then run the following commands in separate terminal windows:
+  - Then run:
     `npm start`
 
   - From there a browser tab should automatically open with the loaded page. If not, simply navigate to `http://http://localhost:9999/` and you should see the gallery.
