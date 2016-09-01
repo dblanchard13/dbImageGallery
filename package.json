@@ -1,0 +1,24 @@
+{
+  "name": "sig-fig-gallery",
+  "version": "1.0.0",
+  "description": "",
+  "main": "js/index.js",
+  "scripts": {
+    "start": "gulp"
+  },
+  "dependencies": {
+    "babel-core": "^6.14.0",
+    "babel-loader": "^6.2.5",
+    "babel-polyfill": "^6.13.0",
+    "babel-preset-es2015": "^6.14.0",
+    "browser-sync": "^2.14.3",
+    "gulp": "^3.9.0",
+    "gulp-cli": "^1.2.1",
+    "json-loader": "^0.5.4",
+    "run-sequence": "^1.1.5",
+    "webpack": "^1.13.2",
+    "webpack-stream": "^2.0.0"
+  },
+  "author": "David Blanchard",
+  "license": "ISC"
+}

@@ -1,0 +1,31 @@
+.image-box {
+  margin: 15px;
+  border: solid black 5px;
+}
+
+.url-input {
+  width: 30%;
+}
+
+.label {
+  margin: 5px;
+}
+
+#gallery-container {
+  padding-top: 25px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+#input-container {
+  padding-top: 25px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 25px;
+}
