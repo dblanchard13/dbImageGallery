@@ -10,7 +10,7 @@ const initialize = () => {
   appendInput()
 }
 
-const appendImage = (url) => {
+const appendImage = (src) => {
   const attrs = {
     className: 'image-box',
     id: `imageBox_${randomNumber()}`,
@@ -21,13 +21,11 @@ const appendImage = (url) => {
     ondragenter: addHighlight,
     ondragleave: removeHighlight,
     draggable: true,
-    src: url
+    src
   }
 
-  // create an img DOM node
-  const img = document.createElement('img')
-  // assign all the necessary attributes/handlers to the node
-  Object.assign(img, attrs)
+  // create an img DOM node with the necessary attributes
+  const img = createElementWithAttrs('img', attrs)
 
   // append the node to the designated parent container
   document.getElementById('gallery-container').appendChild(img)
@@ -38,22 +36,51 @@ const appendInput = () => {
     className: 'url-input',
     type: 'text',
     placeholder: 'http://placekitten.com/350/250',
-    onkeydown: addImageUrl
+    onkeydown: appendImageAndNotifyUser
   }
 
-  const input = document.createElement('input')
-  // assign all the necessary attributes/handlers to the node
-  Object.assign(input, attrs)
+  // create the input DOM node with the necessary attributes
+  const input = createElementWithAttrs('input', attrs)
 
   // append the node to the designated parent container
   document.getElementById('input-container').appendChild(input)
 }
 
-const addImageUrl = (e) => {
+const appendImageAndNotifyUser = (e) => {
   if (e.keyCode !== 13) return
 
   // would normally take the time to sanitize this user input, but I'm trusting y'all for this example 😉
   appendImage(e.target.value)
+
+  notifyUser('Image was added - scroll down to the bottom of the gallery to check it out!')
+}
+
+const notifyUser = (msg) => {
+  const attrs = {
+    id: 'user-alert',
+    innerHTML: msg
+  }
+
+  // create a new label with the nexessary attributes
+  const label = createElementWithAttrs('label', attrs)
+
+  const alertNode = document.getElementById('user-alert')
+  // by replacing nodes we can avoid ever having multiple alerts crowding the UI
+  alertNode.parentNode.replaceChild(label, alertNode)
+
+  // apply the hidden classname after half a second to fad out the alert
+  setTimeout(() => { label.className = 'hidden' }, 500)
+}
+
+const createElementWithAttrs = (elemType, attrs) => {
+  // create the element of the passed in type
+  const element = document.createElement(elemType)
+
+  // assign all the necessary attributes/handlers to the node
+  Object.assign(element, attrs)
+
+  // return the element
+  return element
 }
 
 const randomNumber = () => Math.floor(Math.random() * 100000)
@@ -108,5 +135,5 @@ const removeHighlight = (e) => {
   e.target.style[borderSide] = ''
 }
 
-// initialize the module's functionality
+// initialize this module's functionality
 initialize()
