@@ -11,6 +11,21 @@
   margin: 5px;
 }
 
+#user-alert.hidden{
+  opacity: 0;
+}
+
+#user-alert {
+  margin: 5px;
+  float: right;
+
+  -webkit-transition: opacity 3s ease-in-out;
+  -moz-transition: opacity 3s ease-in-out;
+  -ms-transition: opacity 3s ease-in-out;
+  -o-transition: opacity 3s ease-in-out;
+   opacity: 1;
+}
+
 #gallery-container {
   padding-top: 25px;
   display: flex;
@@ -27,5 +42,10 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  margin-bottom: 10px;
+}
+
+#alert-container {
+  padding-top: 10px;
   margin-bottom: 25px;
 }
